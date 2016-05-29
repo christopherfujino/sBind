@@ -4,7 +4,7 @@
   "description": "A simple data-binding module written in es6",
   "main": "app.js",
   "scripts": {
-    "build": "babel sbind.es6.js -o sbind.js"
+    "build": "babel es6 -d es5"
   },
   "author": "",
   "license": "ISC",
