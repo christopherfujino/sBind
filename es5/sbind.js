@@ -12,7 +12,7 @@ var sBind = function () {
           value = refObj.get(key),
           arr = domStore[name][key];
       if (!name || value === null || !Array.isArray(arr)) {
-        console.log('Error in paramters to sBind.update()');
+        console.log('Error in parameters to sBind.update()');
         return false;
       }
       arr.forEach(function ($span) {
