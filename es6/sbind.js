@@ -3,6 +3,9 @@
 let sBind = function() { // simple databinding namespace
   let domStore = {};     // private storage of jQuery references
   return {
+    domStoreDump : function() { // for testing purposes only
+      console.log(domStore);
+    },
     update : function(refObj, key) { // the DOM is never queried :D
       const name = refObj.get('name'), value = refObj.get(key),
             arr = domStore[name][key];
@@ -11,6 +14,7 @@ let sBind = function() { // simple databinding namespace
         return false;
       }
       arr.forEach($span => { $span.text(value); });
+      return true;
     },
     bind : function(args) { // with keys: type, reference, key, $object,
                             // typeOfEvent, callback, eventData
@@ -62,7 +66,10 @@ let sBind = function() { // simple databinding namespace
           entry[args.key] = [ args.$object ];
         }
       } else { // no domStore entry exists for this object
-        domStore[args.reference.get('name')] = {key : [ args.$object ]};
+        let rName = args.reference.get('name');
+        domStore[rName] = {};
+        domStore[rName][args.key] = [];
+        domStore[rName][args.key].push(args.$object);
       }
       return args.$object;
     }

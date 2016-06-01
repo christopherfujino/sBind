@@ -6,6 +6,10 @@ var sBind = function () {
   // simple databinding namespace
   var domStore = {}; // private storage of jQuery references
   return {
+    domStoreDump: function domStoreDump() {
+      // for testing purposes only
+      console.log(domStore);
+    },
     update: function update(refObj, key) {
       // the DOM is never queried :D
       var name = refObj.get('name'),
@@ -18,6 +22,7 @@ var sBind = function () {
       arr.forEach(function ($span) {
         $span.text(value);
       });
+      return true;
     },
     bind: function bind(args) {
       // with keys: type, reference, key, $object,
@@ -75,7 +80,10 @@ var sBind = function () {
         }
       } else {
         // no domStore entry exists for this object
-        domStore[args.reference.get('name')] = { key: [args.$object] };
+        var rName = args.reference.get('name');
+        domStore[rName] = {};
+        domStore[rName][args.key] = [];
+        domStore[rName][args.key].push(args.$object);
       }
       return args.$object;
     }
