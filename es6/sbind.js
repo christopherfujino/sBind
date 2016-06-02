@@ -23,12 +23,8 @@ let sBind = function() { // simple databinding namespace
         console.log('bad args in sBind.bind()!');
         return false;
       }
-      if (typeof args.reference !== 'object') {
-        console.log('bad args.reference to bind from in sBind.bind()');
-        return false;
-      }
       // meat of code
-      if (args.type === 'input') {
+      if (args.type === 'input') { // if input
         if (!(args.$object instanceof jQuery)) {
           console.log('bad args.$object passed to sBind.bind()!');
           return false;
@@ -46,6 +42,11 @@ let sBind = function() { // simple databinding namespace
           return false;
         }
       } else { // default to output
+        if (typeof args.reference !==
+            'object') { // only output needs this reference
+          console.log('bad args.reference to bind from in sBind.bind()');
+          return false;
+        }
         if (typeof args.key !== 'string' && typeof args.key !== 'number') {
           console.log('bad args.key passed to sBind.bind()!');
           return false;
@@ -54,22 +55,22 @@ let sBind = function() { // simple databinding namespace
           args.$object = $('<span>'); // default bind to span
         }
         args.$object.text(args.reference.get(args.key));
-      }
 
-      let objectName = args.reference.get('name'),
-          entry = domStore[objectName]; // retrieve the name of the object
-      // here manage our domStore, for use by sBind.update()
-      if (entry) {             // if domStore entry for this object exists
-        if (entry[args.key]) { // if array exists for this particular key
-          entry[args.key].push(args.$object);
-        } else { // object exists in store, but not array for key
-          entry[args.key] = [ args.$object ];
+        let objectName = args.reference.get('name'),
+            entry = domStore[objectName]; // retrieve the name of the object
+        // here manage our domStore, for use by sBind.update()
+        if (entry) {             // if domStore entry for this object exists
+          if (entry[args.key]) { // if array exists for this particular key
+            entry[args.key].push(args.$object);
+          } else { // object exists in store, but not array for key
+            entry[args.key] = [ args.$object ];
+          }
+        } else { // no domStore entry exists for this object
+          let rName = args.reference.get('name');
+          domStore[rName] = {};
+          domStore[rName][args.key] = [];
+          domStore[rName][args.key].push(args.$object);
         }
-      } else { // no domStore entry exists for this object
-        let rName = args.reference.get('name');
-        domStore[rName] = {};
-        domStore[rName][args.key] = [];
-        domStore[rName][args.key].push(args.$object);
       }
       return args.$object;
     }
