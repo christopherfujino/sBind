@@ -56,6 +56,7 @@ var sBind = function () {
         domStore[rName][key] = [];
         domStore[rName][key].push($object);
       }
+      return $object;
     },
     bindInput: function bindInput($object, typeOfEvent, callback, eventData) {
       if (!($object instanceof jQuery)) {

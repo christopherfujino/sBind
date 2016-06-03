@@ -47,6 +47,7 @@ let sBind = function() { // simple databinding namespace
         domStore[rName][key] = [];
         domStore[rName][key].push($object);
       }
+      return $object;
     },
     bindInput : function($object, typeOfEvent, callback, eventData) {
       if (!($object instanceof jQuery)) {
