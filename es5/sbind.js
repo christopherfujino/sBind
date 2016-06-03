@@ -51,10 +51,10 @@ var sBind = function () {
         entry[key].push($object);
       } else {
         // no domStore entry exists for this object
-        var rName = args.reference.get('name');
+        var rName = reference.get('name');
         domStore[rName] = {};
-        domStore[rName][args.key] = [];
-        domStore[rName][args.key].push(args.$object);
+        domStore[rName][key] = [];
+        domStore[rName][key].push($object);
       }
     },
     bindInput: function bindInput($object, typeOfEvent, callback, eventData) {

@@ -42,10 +42,10 @@ let sBind = function() { // simple databinding namespace
         }
         entry[key].push($object);
       } else { // no domStore entry exists for this object
-        let rName = args.reference.get('name');
+        let rName = reference.get('name');
         domStore[rName] = {};
-        domStore[rName][args.key] = [];
-        domStore[rName][args.key].push(args.$object);
+        domStore[rName][key] = [];
+        domStore[rName][key].push($object);
       }
     },
     bindInput : function($object, typeOfEvent, callback, eventData) {
