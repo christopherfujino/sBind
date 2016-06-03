@@ -3,6 +3,8 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## Changelog
 
+### 0.2
+
 * new: added README.md
 * fixed: moved code managing domStore to only execute for output bindings, otherwise no reason to perform an update
 * new: separate methods for .bindInput() & .bindOutput() which now use separate parameters, rather than object
@@ -16,5 +18,4 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## To Do List
 
-* split .bind() method into separate .bindInput() & .bindOutput() methods
-* change .bind() configuration object parameter to individual parameters
+* deprecate .bind()

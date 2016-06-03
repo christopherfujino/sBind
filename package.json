@@ -1,6 +1,6 @@
 {
   "name": "sBind",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple data-binding module written in es6",
   "main": "app.js",
   "scripts": {
