@@ -20,3 +20,4 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## To Do List
 
+* look into garbage collection and memory usage of domStore
