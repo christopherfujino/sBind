@@ -3,6 +3,8 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## Changelog
 
+* changed: deprecated .bind()
+
 ### 0.2
 
 * new: added README.md
@@ -18,4 +20,3 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## To Do List
 
-* deprecate .bind()
