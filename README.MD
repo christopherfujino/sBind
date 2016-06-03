@@ -3,8 +3,11 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## Changelog
 
-* fixed: moved code managing domStore to only execute for output bindings, otherwise no reason to perform an update
 * new: added README.md
+* fixed: moved code managing domStore to only execute for output bindings, otherwise no reason to perform an update
+* new: separate methods for .bindInput() & .bindOutput() which now use separate parameters, rather than object
+* fixed: typo of args.key rather than key
+* fixed: bug where sBind.bindOutput() failed to return $object
 
 ### 0.1
 
