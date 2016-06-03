@@ -16,16 +16,13 @@ let sBind = function() { // simple databinding namespace
       arr.forEach($span => { $span.text(value); });
       return true;
     },
-    bindOutput : function(reference, key,
-                          $object) { // reference, key, $object (optional)
+    bindOutput : function(reference, key, $object) {
       if (typeof reference !== 'object') {
-        console.log(
-            'reference parameter passed to sBind.bindOutput() not an object');
+        console.log('reference parameter passed to sBind.bindOutput() not an object');
         return false;
       }
       if (typeof key !== 'string') {
-        console.log(
-            '"key" parameter passed to sBind.bindOutput() not a string');
+        console.log('"key" parameter passed to sBind.bindOutput() not a string');
         return false;
       }
       if (!($object instanceof jQuery)) {
