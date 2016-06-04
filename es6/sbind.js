@@ -1,6 +1,6 @@
-'use strict';
-
 let sBind = function() { // simple databinding namespace
+  'use strict';
+  
   let domStore = {};     // private storage of jQuery references
   return {
     domStoreDump : function() { // for testing purposes only
