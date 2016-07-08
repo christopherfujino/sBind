@@ -3,9 +3,6 @@ let sBind = function() { // simple databinding namespace
   
   let domStore = {};     // private storage of jQuery references
   return {
-    domStoreDump : function() { // for testing purposes only
-      console.log(domStore);
-    },
     update : function(refObj, key) { // the DOM is never queried :D
       const name = refObj.get('name'), value = refObj.get(key),
             arr = domStore[name][key];
