@@ -4,12 +4,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var sBind = function () {
   // simple databinding namespace
+  'use strict';
+
   var domStore = {}; // private storage of jQuery references
   return {
-    domStoreDump: function domStoreDump() {
-      // for testing purposes only
-      console.log(domStore);
-    },
     update: function update(refObj, key) {
       // the DOM is never queried :D
       var name = refObj.get('name'),
