@@ -3,7 +3,9 @@ A simple data-binding module depending only on jQuery and written in ES2015.
 
 ## Changelog
 
-* changed: deprecated .bind()
+### 0.3
+
+* removed: deprecated sBind.bind() method
 
 ### 0.2
 
