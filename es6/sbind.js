@@ -1,4 +1,4 @@
-let sBind = function() { // simple databinding namespace
+let sBind = (function() { // simple databinding namespace
   'use strict';
   
   let domStore = {};     // private storage of jQuery references
@@ -56,4 +56,4 @@ let sBind = function() { // simple databinding namespace
       return $object;
     }
   };
-}();
+})();
